@@ -1,0 +1,435 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>90音乐</title>
+
+	<!--IE浏览器中最新的渲染模式 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<!--强制让页面宽度适应设备的宽，并且不允许用户缩放 -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0 ,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/dialog.css">
+	<style>
+		#curPlay{
+			position:absolute;
+			//display: none;
+			z-index: 20;
+			top:30px;
+			right:0;
+		}
+		source{
+			
+		}
+	</style>
+</head>
+<body>
+	<audio  id="curPlay" controls autoplay >		
+			<source></source>
+	</audio>
+
+	<div class="container">
+		<header class="header" id="header">
+			<a href="#moreBox" class="more" data-tit="更多"><!-- 更多 --></a>
+			<a href="#homeBox" id="back" class="back"><!-- 返回 --></a>
+			<h1>
+				<a href="#homeBox" class="mymusic">我的音乐</a>
+				<!-- <a href="#kuBox" class="musicku">音乐库</a> -->
+			</h1>
+		
+			<a href="#searchBox" class="search" data-tit="搜索"><!-- 搜索 --></a>
+			
+		</header>
+		<div class="main">
+			<section id="homeBox">	<!-- 我的音乐 -->
+
+				<ul>
+					<a href="#localMusicBox" data-tit="本地歌曲"><li><img src="img/mymusic.png"><span>本地歌曲</span><b class="fa fa-angle-right"></b></li></a>
+					<a href="#favoriteBox" data-tit="<i class='fa fa-heart' style='color:red; margin-right:5px;'></i>我喜欢"><li><img src="img/like.png"><span>我喜欢</span><b class="fa fa-angle-right"></b></li></a>
+					<!-- <a href="#downloadBox" data-tit="下载歌曲"><li><img src="img/download.png"><span>下载歌曲</span><b class="fa fa-angle-right"></b></li></a> -->
+				</ul>
+			</section>
+			<!-- <section id="kuBox">音乐库
+				<div class="loop">
+					<div class="pics">
+						<img src="img/loop1.gif">
+						<img src="img/loop2.png">
+						<img src="img/loop3.png">						
+					</div>
+					<ol>
+						<li class="on"></li>
+						<li></li>
+						<li></li>
+					</ol>
+				</div>
+			
+				<div class="mv">
+					<h3>新歌推荐</h3>
+					<div class="content">
+						<a href="#">
+							<dl>
+								<dt><img src="img/mv.gif"></dt>
+								<dd>抗战胜利70周年大阅兵全程视频</dd>
+							</dl>
+						</a>
+						<a href="#">
+							<dl>
+								<dt><img src="img/mv.gif"></dt>
+								<dd>抗战胜利70周年大阅兵全程视频</dd>
+							</dl>
+						</a>
+						<a href="#">
+							<dl>
+								<dt><img src="img/mv.gif"></dt>
+								<dd>抗战胜利70周年大阅兵全程视频</dd>
+							</dl>
+						</a>	
+					</div>
+				
+				</div>
+			</section> -->
+
+			<section id="moreBox"><!-- 更多 -->
+				<!-- <dl>
+					<dt class="myImg"> 
+						<input type="file" id="portrait">
+						<label for="#portrait" class="fa fa-camera">获取本地照片</label>
+						<img src="">
+					</dt>
+					<dd class="myName">用户名</dd>
+				</dl> -->
+
+				<div class="myName">用户名</div>
+				<ul>
+					<li>
+						<div class="fontSize">
+							字体大小
+							<h1 class="btns">	
+								<p>
+									<input type="radio" name="font-size" data-size="12px" id="small">小
+									<label for="switch">小</label>
+								</p>
+								<p>
+									<input type="radio" name="font-size" data-size="16px" id="medium" checked>中
+									<label for="switch">中</label>
+								</p>
+								<p>
+									<input type="radio" name="font-size" data-size="20px" id="big">大
+									<label for="switch">大</label>
+								</p>
+							</h1>
+						</div>
+					</li>
+					<!-- <li><div class="fontColor">
+						字体颜色<input type="color" id="fontColor"><label for="#fontColor"></label>
+					       </div>
+					</li> -->
+					<li><a href="#skinBox" data-tit="皮肤主题">皮肤主题</a></li>
+					<li><a href="#aboutBox" data-tit="关于">关于</a></li>
+					<li>
+						<div class="update" data-tit="更新">
+							有可更新过的数据，是否更新
+							<input type="checkbox" id="switch">
+							<label for="switch">开关</label>
+						</div>
+					</li>
+					<li><a href="#loginBox" data-tit="登录"><b>登录</b></a></li>
+					<li><a href="#registerBox" data-tit="注册"><b>注册</b></a></li>
+					<!-- <li><a href="#loginBox" data-tit="登录"><b>退出</b></a></li> -->
+				</ul>
+			</section>
+			<section id="searchBox"><!-- 搜索 -->
+				<p>
+					<input type="search" id="searchTxt" placeholder="请输入搜索内容">
+					<input type="button" id="searchBtn" value="搜索">
+				</p>
+				<ul class="searchList">
+					<li>暂无搜索内容</li>
+					<!-- <li data-id="歌曲id"><a href="#" data-tit="搜索"><span>歌曲名</span>-<span>歌手</span></a></li> -->
+					
+				</ul>
+			</section>
+			
+			<section id="localMusicBox"><!-- 本地音乐 -->
+
+				<h3><i class="fa fa-list"></i><span class="select">多选</span></h3>
+				
+					<div class="list" id="list">
+					
+						
+					<div class="iscroll">
+					<!-- <div class="songs">
+						<input type="checkbox"><label></label>
+						
+						<dl>	
+							<dt><img src="img/2.png"></dt>					
+							<dd>
+								<p>我的祖国1</p>
+								<span>郭兰英</span>
+							</dd>
+							
+						</dl>
+						
+						<i class="fa fa-heart favorite"></i>
+						<i class="fa fa-trash-o del"></i>
+						
+					</div>	 -->
+						</div>		
+				</div>
+
+				
+				
+				<h4>
+					<div>
+						<input type="checkbox" id="all">
+						<label for="all">全选</label>
+					</div >
+					<div id="del">
+						<i class="fa fa-trash-o"></i>
+						删除(<span id="num">0</span>)
+					</div>
+				</h4>
+
+			</section>
+			
+			<section id="favoriteBox"><!-- 我喜欢 -->
+				<ul>
+					<li>暂无收藏</li>
+					<!-- <li><a href="#playBox" data-tit="我的祖国"><span>我的祖国</span>-<span>郭兰英</span></a><i class="fa fa-trash del"></i></li> -->
+					
+
+				</ul>
+			</section>
+			<!-- <section id="downloadBox">下载歌曲
+				<div class="complete">
+					<h3>正在下载<span class="fa fa-chevron-down btn"></span></h3>
+					<ul>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>听妈妈的话</span><small>周杰伦</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>不将就</span><small>李荣浩</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>Happy Day</span><small>Jono</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>听妈妈的话</span><small>周杰伦</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>不将就</span><small>李荣浩</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>不将就</span><small>李荣浩</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>不将就</span><small>李荣浩</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>不将就</span><small>李荣浩</small></li></a>
+					</ul>
+				</div>
+				
+				<div class="downloading">
+					<h3>已下载<span class="fa fa-chevron-down btn"></span></h3>
+					<ul>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>Raise Me Up</span><small>hoden</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>野子</span><small>田馥甄</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>阴天快乐</span><small>陈奕迅</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>听妈妈的话</span><small>周杰伦</small></li></a>
+						<a href="#playBox" data-tit="听妈妈的话"><li><span>不将就</span><small>李荣浩</small></li></a>
+					</ul>
+				</div>
+			</section> -->
+
+			<section id="playBox"><!-- 播放页 -->
+
+				<div class="up">
+
+					<div class="tab1">
+						<a href="#singerInfo" data-tit="歌手信息"><i class="fa fa-user" ></i></a>
+						<i class="fa fa-heart favorite" id="favorite"></i>
+						
+						<!-- <i class="fa fa-download download"></i> -->
+						<h1 class="songName">我的祖国</h1>
+						<h3 class="singer">郭兰英</h3>
+						 <div class="headerImg">
+							<img src="img/3.png" class="singerImg">
+						</div> 
+						<div class="lyricBox">
+							<p class="lyric">暂无歌词</p>
+						</div>
+					</div>
+					<div class="tab2">
+						<p class="lyric" id="lyric_">暂无歌词</p>
+					</div>
+					
+				</div>
+				
+				<div class="controlBox">
+					<ol>
+						<li class="on"></li>
+						<li></li>
+					</ol>
+					<time>
+						<span id="curTime">cur</span>
+						<div class="pro_box" id="pro_box"></div>
+						<span id="totalTime">total</span>
+					</time>
+					
+					<div class="btn">
+						<div class="icon">
+							<i class="fa fa-arrow-right on">&nbsp;顺序播放</i>
+							<i class="fa fa-random">&nbsp;随机播放</i>
+							<i class="fa fa-exchange">&nbsp;单曲循环</i>
+						</div>
+						<a href="#playBox" class="fa fa-arrow-right" id="loopModel"><!-- 循环模式--></a>
+						<a href="#playBox" class="prevBtn fa fa-step-backward"><!-- 上一首 --></a>
+						<a href="#playBox" class="playBtn fa fa-pause"><!-- 播放 --></a>
+						<a href="#playBox" class="nextBtn fa fa-step-forward"><!-- 下一首 --></a>
+						<a href="#playBox" class="fa fa-volume-up" id="vBtn"><!-- 音量 --></a>
+					</div>
+					
+				</div>
+				<div id="volumeBox">
+					<span class="close">×</span>
+
+						<div class="vPro">
+							<div class="vBar"><i class="vCir"></i></span>
+						</div>
+				</div> 
+	
+			</section>
+			<section id="singerInfo"><!-- 歌手信息 -->
+				<div class="up">
+					<img src="img/loop3.png" class="singerImg">
+					<h3 class="singer">李贞贤</h3>
+				</div>
+				<div class="info">
+					<h4>详情</h4>
+					<p class="singerInfo">符合双方还开会方式的滑动事件凤凰叫对方福建海事局粉红色的积分换发货方开始发发看发挥发挥发挥看撒娇的</p>
+				</div>
+			</section>
+			<section id="skinBox"><!-- 皮肤主题 -->
+				<div id="skins">
+					<div class="iscroll">
+						<dl class="on">
+							<dt><img src="bgImg/0.jpg"></dt>
+							<dd>静夜(默认)</dd>
+						</dl>
+					</div>
+				</div>			
+			</section>
+
+			<section id="aboutBox"><!-- 关于我们 -->
+				<ul>
+					<!-- <li>介绍：90音乐具备音乐播放、搜索、下载、管理等功能，是一款性能卓越、体积“瘦小”、界面炫丽、操作简单的全功能音乐软件；拥有自主研发的音频引擎，兼容播放MP3/MP3pro，AAC/AAC+、MP4/M4R、WMA、WAV、APE、OGG、FLA、FLAC等音频文件；
+					 优化的搜索技术，搜索结果更加精准、丰富；全新的皮肤设计，满足用户的个性化需求；人性化的音乐管理，网络储存播放列表； 90音乐满足用户的一站式音乐需求，为您的音乐享受带来更美妙的体验。
+					</li> -->
+					<li>版权所有：中国北京90创维股份有限公司</li>
+						
+					
+					<li>更新：2016年4月8日</li>
+					<li>开发人员：李莎莎</li>
+			</ul>
+			</section>
+	
+			<section id="loginBox"><!-- 登录-->
+				<div class="logo">
+					<img src="img/logo.png" alt="logo">
+					<p>90音乐</p>
+				</div>
+				<form id="loginForm">
+					<table>
+						<tr>
+							<td>用户名</td>
+							<td><input type="text" placeholder="请输入用户名" name="user" class="user" id="user"></td>
+						</tr>
+						<tr>
+							<td>密&nbsp;&nbsp;&nbsp;码</td>
+							<td><input type="password" placeholder="请输入密码" name="pwd" class="pwd" id="pwd"></td>
+						</tr>
+						<tr>
+							
+							<td colspan="2">
+								<input type="button" value="登&nbsp;录" class="loginBtn" id="loginBtn">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"><a href="#registerBox" data-tit="注册" class="registerBtn" id="registerBtn">注册账号</a>
+								<a href="#" class="forgetBtn" id="forgetBtn">忘记密码</a>
+							</td>
+						</tr>
+					</table>
+				</form>
+				
+			</section>
+			<section id="registerBox"><!-- 注册 -->
+
+				<div class="logo">
+					<img src="img/logo.png" alt="logo">
+					
+				</div> 
+				
+				<form  id="registerForm">
+					<table>
+						<tr>
+							<td>用户名</td>
+							<td><input type="text" placeholder="请输入用户名" name="user" class="user"></td>
+							
+						</tr>
+						<tr>
+							<td><span class="userTip"></span></td>
+						</tr>
+						<tr>
+							<td>密&nbsp;&nbsp;&nbsp;码</td>
+							<td><input type="password" placeholder="请输入密码" name="pwd" class="pwd pwd1"></td>
+							
+						</tr>
+						<tr>
+							<td><span class="pwdTip"></span></td>
+						</tr>
+						<tr>
+							<td>确认密码</td>
+							<td><input type="password" placeholder="请输入密码" class="pwd pwd2"></td>
+						</tr>
+						<tr>
+							<td><span class="pwd2Tip"></span></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="注&nbsp;册" class="registerBtn"></td>
+						</tr>
+					</table>
+				</form>
+			</section>
+
+
+
+		</div>
+		<footer class="footer" id="footer">
+		<a href="#playBox" ><!-- data-tit="我的祖国" -->
+			<dl>
+				<dt><img src="img/2.png" class="singerImg"></dt>
+				<dd>
+					<marquee class="songName">我的祖国</marquee>
+					<p class="singer">郭兰英</p>
+				</dd>
+			</dl>
+		</a>	
+			<div>
+				<span 	class="prevBtn fa fa-backward"><!-- 上一首 --></span>
+				<span 	class="playBtn fa fa-pause"><!-- 播放 --></span>
+				<span 	class="nextBtn fa fa-forward"><!-- 下一首 --></span>
+			</div>
+			
+		</footer>
+	</div>
+	<script src="js/jquery.js"></script>
+
+	<script src="js/zepto.min.js"></script>
+	<script src="js/iscroll4.js"></script>
+	<script src="js/progress.js"></script>
+	<script src="js/dialog.js"></script>
+	<script src="js/myjs.js"></script>
+
+	<script>
+		/*$.dialog({
+			tit:"",
+			close:"",
+			msg:"你确定删除吗？",
+			btns:["确定","取消"],
+			callback1:null
+		})		*/	
+		
+	</script>
+	
+</body>
+</html>
